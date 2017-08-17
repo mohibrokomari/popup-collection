@@ -38,4 +38,16 @@ $(document).ready(function() {
     		$('.cd-popup').removeClass('is-visible');
 	    }
     });
+
+/* Popup Menu Two------------
+------------------------------*/
+  $('.popup-button-tree').on('mouseenter', function(){
+    $('.wrap, a').toggleClass('active');
+  });
+
+  $('.popup3-close').on('mouseleave', function(){
+    $('.wrap, a').removeClass('active');
+    
+  });
+
 });
