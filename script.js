@@ -39,15 +39,35 @@ $(document).ready(function() {
 	    }
     });
 
-/* Popup Menu Two------------
+/* Popup Menu Three------------
 ------------------------------*/
   $('.popup-button-tree').on('mouseenter', function(){
     $('.wrap, a').toggleClass('active');
   });
 
-  $('.popup3-close').on('mouseleave', function(){
+  $('.popup3-close').on('click', function(){
     $('.wrap, a').removeClass('active');
     
   });
 
+
+/* Popup Menu Four------------
+------------------------------*/
+  $(document).scroll(function() {
+  var scroll = $(this).scrollTop();
+  if (scroll >= 150) {
+    $("#popUp").css("margin-left", "-425px");
+    $("#plus").css("margin-left", "0px");
+  }
+});
+
+$("#plus").click(function() {
+  $("#popUp").css("margin-left", "0px");
+  $("#plus").css("margin-left", "-425px");
+});
+
+$("#close").click(function() {
+  $("#popUp").css("margin-left", "-425px");
+  $("#plus").css("margin-left", "0px");
+});
 });
