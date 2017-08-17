@@ -54,20 +54,45 @@ $(document).ready(function() {
 /* Popup Menu Four------------
 ------------------------------*/
   $(document).scroll(function() {
-  var scroll = $(this).scrollTop();
-  if (scroll >= 150) {
+    var scroll = $(this).scrollTop();
+    if (scroll >= 150) {
+        $("#popUp").css("margin-left", "-425px");
+        $("#plus").css("margin-left", "0px");
+    }
+    });
+
+    $("#plus").click(function() {
+    $("#popUp").css("margin-left", "0px");
+    $("#plus").css("margin-left", "-425px");
+    });
+
+    $("#close").click(function() {
     $("#popUp").css("margin-left", "-425px");
     $("#plus").css("margin-left", "0px");
-  }
+    });
 });
 
-$("#plus").click(function() {
-  $("#popUp").css("margin-left", "0px");
-  $("#plus").css("margin-left", "-425px");
-});
 
-$("#close").click(function() {
-  $("#popUp").css("margin-left", "-425px");
-  $("#plus").css("margin-left", "0px");
-});
-});
+/* Popup Menu Five------------
+------------------------------*/
+
+
+      // if you want to use the 'fire' or 'disable' fn,
+      // you need to save OuiBounce to an object
+      var _ouibounce = ouibounce(document.getElementById('ouibounce-popupModal'), {
+        aggressive: true,
+        timer: 0,
+        callback: function() { console.log('ouibounce fired!'); }
+      });
+
+      $('body').on('click', function() {
+        $('#ouibounce-popupModal').hide();
+      });
+
+      $('#ouibounce-popupModal .popupModal-footer').on('click', function() {
+        $('#ouibounce-popupModal').hide();
+      });
+
+      $('#ouibounce-popupModal .popupModal').on('click', function(e) {
+        e.stopPropagation();
+      });
